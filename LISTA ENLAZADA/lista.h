@@ -33,7 +33,7 @@ class Lista
 
     bool estaVacia()
     {
-        return (raiz == nullptr)
+        return (raiz == nullptr);
     };
 
     int devolverLargo()
@@ -56,7 +56,7 @@ class Lista
     {
         if (indice > this->largo)
         {
-            throw std::out_of_range("Se intentó acceder a la lista con un índice que excede su largo.")
+            throw std::out_of_range("Se intentó acceder a la lista con un índice que excede su largo.");
         }
 
         Nodo<Tipo> * nodoBuscado = buscarNodo(indice);
