@@ -1,2 +1,4 @@
 *(viejo).*
 prueba*
+.clangd
+*.py
