@@ -12,9 +12,7 @@ class Nodo
 
     public:
 
-    Nodo() noexcept 
-    : Nodo{nullptr,nullptr,false}
-    {};
+    Nodo() = delete;
 
     explicit Nodo(Tipo * nuevoDato) noexcept
     {
@@ -67,6 +65,7 @@ class Nodo
         {
             this->siguiente->~Nodo();
         }
+        delete dato;
     };
 };
 
