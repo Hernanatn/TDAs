@@ -5,6 +5,7 @@
 #include "nodo.h"
 #endif
 
+#include <iostream>
 #include <stdexcept>
 
 template<typename Tipo>
@@ -16,7 +17,7 @@ class Lista
 
     public:
     Lista() noexcept
-    : Lista{0,nullptr}
+    : Lista{0,nullptr} 
     {};
 
     explicit Lista(Nodo<Tipo> * nuevoNodo)
@@ -38,10 +39,27 @@ class Lista
 
     int devolverLargo()
     {
-        return largo;
+        return this->largo;
     };
 
-    void ordenarPorId();
+    void ordenar()
+    {
+        if (this->estaVacia())
+        {   
+            std::cout<<"Intentó ordenar una lista vacía.\n";
+            //#pragma message(": warning<lista vacía> Intentó ordenar una lista vacía.")
+            return;
+        }
+        else if (!raiz->esComparable())
+        {
+            std::cout<<"Intentó llamar ordenar() sobre una lista de tipos que no implementan métodos ni operadores de comparación. Esta llamada no hizo nada. Es probable que no exista una noción razonable de 'orden' para los tipos subyacentes a la lista, por lo que tratar de ordenarla resulta igualmente irrazonable.\n";
+            //#pragma message(": warning<tipo no es ordenable> Intentó llamar ordenar() sobre una lista de tipos que no implementan métodos ni operadores de comparación. Esta llamada no hizo nada. Es probable que no exista una noción razonable de 'orden' para los tipos subyacentes a la lista, por lo que tratar de ordenarla resulta igualmente irrazonable.");
+            return;
+        }
+
+        // [HACER] Implementar ordenamiento por mezcla.
+        return;
+    };
 
     ~Lista()
     {
